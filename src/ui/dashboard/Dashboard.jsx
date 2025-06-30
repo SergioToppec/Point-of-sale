@@ -7,6 +7,6 @@ export default function Dashboard() {
     return(
         <><h1 className="text-xl font bold">Dashboard</h1>
         
-        <button className="bg-azulOscuro" onClick={() => navigate ('/login')}> regresar</button></>
+        <button className="bg-azulOscuro" onClick={() => navigate (-1)}> regresar</button></>
     )
 }

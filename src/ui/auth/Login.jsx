@@ -7,7 +7,7 @@ export default function Login() {
     return(
         <>
         <button onClick={()=> navigate ('/')}>Rergresar</button>
-        <button className="bg-azulOscuro text-white border border-zinc-500" onClick={() => navigate ('/dashboard')}>Go to Dashboard</button>
+        <button className="bg-azulOscuro text-white border border-zinc-500" onClick={() => navigate (-1)}>Go to Dashboard</button>
         </>
     )
 }
