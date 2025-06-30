@@ -8,8 +8,8 @@ export default function AppRoutes() {
 
             <Routes>
                 <Route path="/" element={<PrefixScreen />} />  
-                <Route path="/Login" element={<Login/>} /> 
-                <Route path="/Dashboard" element={<Dashboard/>} /> 
+                <Route path="/login" element={<Login/>} /> 
+                <Route path="/dashboard" element={<Dashboard/>} /> 
             </Routes>
 
     )
