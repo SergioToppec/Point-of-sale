@@ -1,11 +1,10 @@
-import PrefixScreen from "./ui/startup/PrefixScreen"
+import { BrowserRouter } from 'react-router-dom';
+import AppRoutes from '@/config/routes/AppRoutes';
 
-function App() {
+export default function App() {
   return (
-    <div>
-     <PrefixScreen />
-    </div>
-  )
+    <BrowserRouter>
+      <AppRoutes />
+    </BrowserRouter>
+  );
 }
-
-export default App
