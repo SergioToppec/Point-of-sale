@@ -3,11 +3,11 @@ export default function CustomersForm() {
     <form>
       <div>
 
-          <h1>Agregar nuevo cliente</h1>
+          <h1 className="text-azulOscuro">Agregar nuevo cliente</h1>
 
         <div className="grid grid-col border border-azulOscuro rounded-lg">
           <div>
-            <label className=" bg-azulOscuro w-64 text-white">Razón social</label>
+            <label className=" bg-azulOscuro w-72 text-white">Razón social</label>
             <input type="string" className="flex-1 border border-gray-400"/>
           </div>
           <div>
