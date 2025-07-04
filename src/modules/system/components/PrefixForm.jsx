@@ -20,50 +20,53 @@ export default function PrefixForm() {
 
   //Onsubmit es una funcion que se ejecuta cuando se envia el formulario
   const onSubmit = (data) => {
-    alert(`Apertura de caja: $${data.amount}`); 
+    alert(`Apertura de caja: $${data.amount}`);
     console.log("Valor decimal:", data.amount); //El valor se imprime en la consola
 
-    navigate("/login"); //Redirige al usuario a la pagina de login
+    navigate("/dashboard"); //Redirige al usuario a la pagina de login
   };
-
-
-
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="ml-6">
       <label>
-        <h2 className="font-semibold mt-4 mb-8">Captura el importe inicial para la apertura de caja.</h2>
+        <h2 className="font-semibold mt-4 mb-8">
+          Captura el importe inicial para la apertura de caja.
+        </h2>
         <span className="font-semibold">Apertura de caja:</span>
-
-        <div className="relative inline-block ml-3 ">
-          <span className="absolute left-3 top-[5px] text-gray-600 pointer-events-none">$</span>
-          <input
-            type="number"
-            step={0.01}  //Es para que deje ingresar decimales sin que salga el error de "El valor debe ser un número entero"
-            placeholder="0.00"
-            onChange={(e) => {
-              setValue(e.target.value);
-              setValue("amount", e.target.value);
-            }}
-            className="border border-gray-600 rounded w-40 p-1 pl-7"
-            {...register("amount", {
-              valueAsNumber: true,
-              min:{
-                value: 0.01,
-                message: "El monto debe ser mayor a 0.01",
-              },
-
-              required: "El monto es requerido",
-            })}
-          />
-        </div>
-
-        {errors.amount && <p className="text-rojoFuerte mt-3">{"El monto es requerido"}</p>}
       </label>
+      <div className="relative inline-block ml-3 ">
+        <span className="absolute left-3 top-[5px] text-gray-600 pointer-events-none">
+          $
+        </span>
+        <input
+          type="number"
+          step={0.01} //Es para que deje ingresar decimales sin que salga el error de "El valor debe ser un número entero"
+          placeholder="0.00"
+          onChange={(e) => {
+            setValue(e.target.value);
+            setValue("amount", e.target.value);
+          }}
+          className="border border-gray-600 rounded w-40 p-1 pl-7"
+          {...register("amount", {
+            valueAsNumber: true,
+            min: {
+              value: 0.01,
+              message: "El monto debe ser mayor a 0.01",
+            },
+
+            required: "El monto es requerido",
+          })}
+        />
+      </div>
+
+      {errors.amount && (
+        <p className="text-rojoFuerte mt-3">{"El monto es requerido"}</p>
+      )}
 
       <div className="flex gap-6 mt-8 mr-6 items-center justify-end">
         <button
           type="button"
+          onClick={() => navigate(-1)}
           className=" bg-rojoFuerte text-white py-1.5 px-5 rounded-lg"
         >
           Cancelar
@@ -79,7 +82,7 @@ export default function PrefixForm() {
   );
 }
 
-//Error que tuve con el input que no me dejaba escribir, es porque el react-hook-form estaba 
-// manejando el estado del input y no me dejaba escribir, por eso tuve que usar el useState para 
-// manejar el estado del input y poder escribir en él. Para solucionar esto, se usa el setValue 
+//Error que tuve con el input que no me dejaba escribir, es porque el react-hook-form estaba
+// manejando el estado del input y no me dejaba escribir, por eso tuve que usar el useState para
+// manejar el estado del input y poder escribir en él. Para solucionar esto, se usa el setValue
 // de react-hook-form para actualizar el valor del input cuando se cambia el valor del input.
