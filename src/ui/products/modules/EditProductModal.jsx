@@ -52,8 +52,8 @@ const EditProductModal = ({ producto, onClose, onUpdate }) => {
             <input
               type="text"
               value={clave}
-              onChange={e => setClave(e.target.value)}
-              className="w-1/2 bg-[#D5DEEF] border border-gray-300 px-2 py-1 text-right rounded"
+              readOnly
+              className="w-1/2 bg-gray-200 border border-gray-300 px-2 py-1 text-right rounded"
             />
           </div>
           <div className="flex justify-between items-center">
@@ -61,8 +61,8 @@ const EditProductModal = ({ producto, onClose, onUpdate }) => {
             <input
               type="text"
               value={descripcion}
-              onChange={e => setDescripcion(e.target.value)}
-              className="w-1/2 bg-[#D5DEEF] border border-gray-300 px-2 py-1 text-right rounded"
+              readOnly
+              className="w-1/2 bg-gray-200 border border-gray-300 px-2 py-1 text-right rounded"
             />
           </div>
           <div className="flex justify-between items-center">

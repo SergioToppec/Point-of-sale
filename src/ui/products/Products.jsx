@@ -49,18 +49,16 @@ const Inventory = () => {
     <div className="p-8 bg-white min-h-screen">
 
 
-      {/* Success Modal */}
+      
       <SuccessModal
         isOpen={successModal.isOpen}
         message={successModal.message}
         onClose={() => setSuccessModal({ isOpen: false, message: "" })}
       />
 
-      {/* Contenedor tabla + botones encima */}
+
       <div className="flex gap-6">
-        {/* Columna principal con botones y tabla */}
         <div className="flex-1">
-          {/* Botones en la misma fila sobre la tabla */}
           <div className="flex justify-between items-center mb-2">
             <button
               onClick={() => setShowForm(true)}
@@ -82,7 +80,7 @@ const Inventory = () => {
             </button>
           </div>
 
-          {/* Tabla */}
+          {/* Tabla principal */}
           <table className="w-full border border-gray-300 text-sm">
             <thead className="bg-[#395886] text-white">
               <tr>
@@ -119,7 +117,7 @@ const Inventory = () => {
           </table>
         </div>
 
-        {/* Sidebar derecho */}
+        {/* boton derecho */}
         <div className="w-48 flex flex-col gap-4">
           <div className="flex flex-col gap-2">
             <label className="text-gray-700 font-medium text-sm text-right">Cantidad actual:</label>
@@ -144,8 +142,15 @@ const Inventory = () => {
         </div>
       </div>
 
-      {/* Formularios modales */}
-      {showForm && <InventoryForm onClose={() => setShowForm(false)} onAdd={handleAgregarProducto} />}
+      {/* Formularios ya saquen persona */}
+     {showForm && (
+  <InventoryForm
+    onClose={() => setShowForm(false)}
+    onAdd={handleAgregarProducto}
+    productosExistentes={productos}
+  />
+)}
+
       {showQuantityModal && productoSeleccionado && (
         <AddQuantityModal
           producto={productoSeleccionado}
