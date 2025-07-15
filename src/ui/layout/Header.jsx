@@ -12,7 +12,7 @@ export default function Header() {
         return "Caja";
       case "/dashboard/products":
         return "Inventario";
-      case "/dashboard/customers":
+      case "/dashboard/clients":
         return "Clientes";
       case "/dashboard/billings":
         return "Facturación";
@@ -22,8 +22,11 @@ export default function Header() {
         return "Reportes";
       case "/dashboard/settings":
         return "Configuración";
+              case "/dashboard/settings/general":
+        return "Configuración general";
       case "/dashboard/permissions":
         return"Permisos o accesos";
+        
     }
   };
 
@@ -37,7 +40,7 @@ export default function Header() {
             <span className="">Sergio Torres</span>
             <FaRegCircleUser size={25} className="text-2xl" />
           </div>
-          <span className="font-normal text-lg">Cajero</span>
+          <span className="font-normal text-sm">Administrador</span>
         </div>
       </div>
     </nav>

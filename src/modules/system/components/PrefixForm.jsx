@@ -46,7 +46,7 @@ export default function PrefixForm() {
             setValue(e.target.value);
             setValue("amount", e.target.value);
           }}
-          className="border border-gray-600 rounded w-40 p-1 pl-7"
+          className="| rounded-lg border-[1px] border-gray-500 w-40 p-1 pl-7"
           {...register("amount", {
             valueAsNumber: true,
             min: {

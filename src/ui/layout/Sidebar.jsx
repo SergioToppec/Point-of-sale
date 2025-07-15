@@ -29,7 +29,7 @@ export default function Sidebar() {
     <nav
       name="viewport"
       className={`flex flex-col items-center justify-between min-h-full w-64 bg-white border-r-[1px] shadow-md p-4 transition-all duration-500 ${
-        Open ? "w-64 " : "w-[96px]"
+        Open ? "w-60 " : "w-[96px]"
       }`}
     >
       <div>
@@ -59,19 +59,19 @@ export default function Sidebar() {
 
         <ul
           className={`text-azulOscuro text-lg font-medium space-y-2 ${
-            Open ? "w-54 ml-4 translate-x-1" : "w-14 ml-4 -translate-x-1"
+            Open ? "w-48 ml-4 translate-x-1" : "w-14 ml-4 -translate-x-1"
           }`}
         >
           <li onClick={() => navigate("/dashboard")} className="flex items-center h-10 hover:font-semibold hover:rounded-[13px] hover:bg-azulClaro">
-            <span>
+            <button>
               <FaHouse
                 size={20}
                 className={`ml-2 mr-2 transition-all duration-200 ${
                   Open ? "ml-2" : "ml-[17.5px]"
                 }`}
               />
-            </span>
-            <span
+            </button>
+            <button
               className={`transition-all duration-300 ${
                 Open
                   ? "opacity-100 translate-x-1"
@@ -79,18 +79,18 @@ export default function Sidebar() {
               }`}
             >
               Inicio
-            </span>
+            </button>
           </li>
           <li onClick={() => navigate("pos")} className="flex items-center h-10 hover:font-semibold hover:rounded-[13px] hover:bg-azulClaro">
-            <span>
+            <button>
               <FaCartShopping
                 size={20}
                 className={`ml-2 mr-2 transition-all duration-200 ${
                   Open ? "ml-2" : "ml-[17.5px]"
                 }`}
               />
-            </span>
-            <span
+            </button>
+            <button
               className={`transition-all duration-300 ${
                 Open
                   ? "opacity-100 translate-x-1"
@@ -98,18 +98,18 @@ export default function Sidebar() {
               }`}
             >
               Ventas
-            </span>
+            </button>
           </li>
           <li onClick={() => navigate("products")} className="flex items-center h-10 hover:font-semibold hover:rounded-[13px] hover:bg-azulClaro">
-            <span>
+            <button>
               <FaBoxOpen
                 size={20}
                 className={`ml-2 mr-2 transition-all duration-200 ${
                   Open ? "ml-2" : "ml-[17.5px]"
                 }`}
               />
-            </span>
-            <span
+            </button>
+            <button
               className={`transition-all duration-300 ${
                 Open
                   ? "opacity-100 translate-x-1"
@@ -117,18 +117,18 @@ export default function Sidebar() {
               }`}
             >
               Inventario
-            </span>
+            </button>
           </li>
-          <li onClick={() => navigate("customers")} className="flex items-center h-10 hover:font-semibold hover:rounded-[13px] hover:bg-azulClaro">
-            <span>
+          <li onClick={() => navigate("clients")} className="flex items-center h-10 hover:font-semibold hover:rounded-[13px] hover:bg-azulClaro">
+            <button>
               <FaUserGroup
                 size={20}
                 className={`ml-2 mr-2 transition-all duration-200 ${
                   Open ? "ml-2" : "ml-[17.5px]"
                 }`}
               />
-            </span>
-            <span
+            </button>
+            <button
               className={`transition-all duration-300 ${
                 Open
                   ? "opacity-100 translate-x-1"
@@ -136,19 +136,19 @@ export default function Sidebar() {
               }`}
             >
               Clientes
-            </span>
+            </button>
           </li>
 
           <li onClick={() => navigate("billings")} className="flex items-center h-10 hover:font-semibold hover:rounded-[13px] hover:bg-azulClaro ">
-            <span>
+            <button>
               <FaFileLines
                 size={20}
                 className={`ml-2 mr-2 transition-all duration-200 ${
                   Open ? "ml-2" : "ml-[17.5px]"
                 }`}
               />
-            </span>
-            <span
+            </button>
+            <button
               className={`transition-all duration-300 ${
                 Open
                   ? "opacity-100 translate-x-1"
@@ -156,19 +156,19 @@ export default function Sidebar() {
               }`}
             >
               Facturación
-            </span>
+            </button>
           </li>
 
           <li onClick={() => navigate("payments")} className="flex items-center h-10 hover:font-semibold hover:rounded-[13px] hover:bg-azulClaro">
-            <span>
+            <button>
               <MdPayments
                 size={20}
                 className={`ml-2 mr-2 transition-all duration-200 ${
                   Open ? "ml-2" : "ml-[17.5px]"
                 }`}
               />
-            </span>
-            <span
+            </button>
+            <button
               className={`transition-all duration-300 ${
                 Open
                   ? "opacity-100 translate-x-1"
@@ -176,18 +176,18 @@ export default function Sidebar() {
               }`}
             >
               Pago
-            </span>
+            </button>
           </li>
           <li onClick={() => navigate("reports")} className="flex items-center h-10 hover:font-semibold hover:rounded-[13px] hover:bg-azulClaro">
-            <span>
+            <button>
               <HiMiniPresentationChartBar
                 size={20}
                 className={`ml-2 mr-2 transition-all duration-200 ${
                   Open ? "ml-2" : "ml-[17.5px]"
                 }`}
               />
-            </span>
-            <span
+            </button>
+            <button
               className={`transition-all duration-300 ${
                 Open
                   ? "opacity-100 translate-x-1"
@@ -195,18 +195,18 @@ export default function Sidebar() {
               }`}
             >
               Reportes
-            </span>
+            </button>
           </li>
           <li onClick={() => navigate("settings")} className="flex items-center h-10 hover:font-semibold hover:rounded-[13px] hover:bg-azulClaro">
-            <span>
+            <button>
               <FaGear
                 size={20}
                 className={`ml-2 mr-2 transition-all duration-200 ${
                   Open ? "ml-2" : "ml-[17.5px]"
                 }`}
               />
-            </span>
-            <span
+            </button>
+            <button
               className={`transition-all duration-100 ${
                 Open
                   ? "opacity-100 translate-x-1"
@@ -214,17 +214,17 @@ export default function Sidebar() {
               }`}
             >
               Configuración
-            </span>
+            </button>
           </li>
           <li onClick={() => navigate("permissions")} className="flex items-center h-10 hover:font-semibold hover:rounded-[13px] hover:bg-azulClaro">
-            <span>
+            <button>
               <MdLockOutline
                 size={20}
                 className={`ml-2 mr-2 transition-all duration-200 ${
                   Open ? "ml-2" : "ml-[17.5px]"
                 }`}
               />
-            </span>
+            </button>
             <span
               className={`leading-4 transition-all duration-200 ${
                 Open

@@ -1,4 +1,3 @@
-
 # Sistema de Punto de Venta Modular para Gestión Integral de Tiendas
 
 Este proyecto es una aplicación de escritorio desarrollada con  **Electron** ,  **React** , **Vite** y  **Tailwind CSS** , pensada para operar de forma modular y escalable. Su objetivo es ofrecer una solución integral para comercios, incluyendo funcionalidades de venta, facturación, devoluciones, control de inventario, gestión de clientes, reportes y configuraciones de periféricos.
@@ -13,7 +12,7 @@ Este proyecto es una aplicación de escritorio desarrollada con  **Electron** , 
 * Integración con periféricos (impresoras, lectores de código, balanzas).
 * Reportes financieros y exportación.
 * Estilos con TailwindCSS y layouts adaptables.
-* Base de datos local con SQLite.
+* Base de datos local con SQServer.
 
 ---
 
