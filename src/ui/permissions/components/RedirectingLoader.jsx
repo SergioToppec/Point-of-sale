@@ -1,5 +1,3 @@
-"use client"
-
 import { useEffect } from "react"
 import revotec from "@/assets/icons/revotec.svg"
 import { useNavigate } from "react-router-dom"

@@ -58,3 +58,11 @@ body {
 .animate-shine {
   animation: shine 1.5s linear infinite;
 }
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}

@@ -46,16 +46,12 @@ const Inventory = () => {
   }
 
   return (
-    <div className="p-8 bg-white min-h-screen">
-
-
-      
+    <div className="p-8 bg-white min-h-screen overflow-hidden">
       <SuccessModal
         isOpen={successModal.isOpen}
         message={successModal.message}
         onClose={() => setSuccessModal({ isOpen: false, message: "" })}
       />
-
 
       <div className="flex gap-6">
         <div className="flex-1">
@@ -80,44 +76,50 @@ const Inventory = () => {
             </button>
           </div>
 
-          {/* Tabla principal */}
-          <table className="w-full border border-gray-300 text-sm">
-            <thead className="bg-[#395886] text-white">
-              <tr>
-                <th className="p-3 text-center font-medium">Clave producto</th>
-                <th className="p-3 text-center font-medium">Descripción</th>
-                <th className="p-3 text-center font-medium">Cantidad</th>
-                <th className="p-3 text-center font-medium">Precio</th>
-              </tr>
-            </thead>
-            <tbody>
-              {productos.length === 0 ? (
+          {/* Tabla con encabezado con corner radius */}
+          <div className="border border-gray-300 overflow-hidden">
+            <table className="w-full text-sm border-collapse">
+              <thead className="bg-[#395886] text-white sticky top-0 z-10">
                 <tr>
-                  <td colSpan={4} className="p-8 text-center text-gray-500">
-                    No hay productos en el inventario
-                  </td>
+                  <th className="p-3 text-center font-medium rounded-tl-[10px]">Clave producto</th>
+                  <th className="p-3 text-center font-medium">Descripción</th>
+                  <th className="p-3 text-center font-medium">Cantidad</th>
+                  <th className="p-3 text-center font-medium rounded-tr-[10px]">Precio</th>
                 </tr>
-              ) : (
-                productos.map((prod, index) => (
-                  <tr
-                    key={index}
-                    className={`text-center border-t border-gray-200 cursor-pointer ${
-                      productoSeleccionado?.clave === prod.clave ? "bg-[#D5DEEF]" : ""
-                    }`}
-                    onClick={() => setProductoSeleccionado(prod)}
-                  >
-                    <td className="p-2">{prod.clave}</td>
-                    <td className="p-2">{prod.descripcion}</td>
-                    <td className="p-2">{prod.cantidad}</td>
-                    <td className="p-2">${prod.precio.toFixed(2)}</td>
-                  </tr>
-                ))
-              )}
-            </tbody>
-          </table>
+              </thead>
+            </table>
+            <div className="max-h-[200px] overflow-y-auto hide-scrollbar">
+              <table className="w-full text-sm border-collapse">
+                <tbody>
+                  {productos.length === 0 ? (
+                    <tr>
+                      <td colSpan={4} className="p-8 text-center text-gray-500">
+                        No hay productos en el inventario
+                      </td>
+                    </tr>
+                  ) : (
+                    productos.map((prod, index) => (
+                      <tr
+                        key={index}
+                        className={`text-center border-t border-gray-200 cursor-pointer ${
+                          productoSeleccionado?.clave === prod.clave ? "bg-[#D5DEEF]" : ""
+                        }`}
+                        onClick={() => setProductoSeleccionado(prod)}
+                      >
+                        <td className="p-2">{prod.clave}</td>
+                        <td className="p-2">{prod.descripcion}</td>
+                        <td className="p-2">{prod.cantidad}</td>
+                        <td className="p-2">${prod.precio.toFixed(2)}</td>
+                      </tr>
+                    ))
+                  )}
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
 
-        {/* boton derecho */}
+        {/* Panel derecho */}
         <div className="w-48 flex flex-col gap-4">
           <div className="flex flex-col gap-2">
             <label className="text-gray-700 font-medium text-sm text-right">Cantidad actual:</label>
@@ -142,15 +144,14 @@ const Inventory = () => {
         </div>
       </div>
 
-      {/* Formularios ya saquen persona */}
-     {showForm && (
-  <InventoryForm
-    onClose={() => setShowForm(false)}
-    onAdd={handleAgregarProducto}
-    productosExistentes={productos}
-  />
-)}
-
+      {/* Modales */}
+      {showForm && (
+        <InventoryForm
+          onClose={() => setShowForm(false)}
+          onAdd={handleAgregarProducto}
+          productosExistentes={productos}
+        />
+      )}
       {showQuantityModal && productoSeleccionado && (
         <AddQuantityModal
           producto={productoSeleccionado}
