@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { FaPlus, FaEdit, FaBoxOpen } from "react-icons/fa"
 import InventoryForm from "../../ui/products/modules/IventoryForm"
 import AddQuantityModal from "../../ui/products/modules/AddQuantityModal"
@@ -15,12 +15,33 @@ const Inventory = () => {
   const [productoSeleccionado, setProductoSeleccionado] = useState(null)
   const [successModal, setSuccessModal] = useState({ isOpen: false, message: "" })
 
+  useEffect(() => {
+    const productosGuardados = localStorage.getItem("productos")
+    if (productosGuardados) {
+      setProductos(JSON.parse(productosGuardados))
+    }
+  }, [])
+
   const mostrarMensaje = (msg) => {
     setSuccessModal({ isOpen: true, message: msg })
   }
 
+  const guardarEnLocalStorage = (productosActualizados) => {
+    localStorage.setItem("productos", JSON.stringify(productosActualizados))
+  }
+
+  const agregarAlHistorial = (producto) => {
+    const historialAnterior = JSON.parse(localStorage.getItem("historial")) || []
+    const hoy = new Date().toLocaleDateString("es-MX")
+    const nuevoHistorial = [...historialAnterior, { ...producto, fecha: hoy }]
+    localStorage.setItem("historial", JSON.stringify(nuevoHistorial))
+  }
+
   const handleAgregarProducto = (nuevoProducto) => {
-    setProductos([...productos, nuevoProducto])
+    const nuevosProductos = [...productos, nuevoProducto]
+    setProductos(nuevosProductos)
+    guardarEnLocalStorage(nuevosProductos)
+    agregarAlHistorial(nuevoProducto)
     setShowForm(false)
     mostrarMensaje("Producto agregado correctamente")
   }
@@ -31,6 +52,7 @@ const Inventory = () => {
         p.clave === productoSeleccionado.clave ? { ...p, cantidad: p.cantidad + cantidad } : p
       )
       setProductos(nuevosProductos)
+      guardarEnLocalStorage(nuevosProductos)
       setShowQuantityModal(false)
       mostrarMensaje("Cantidad agregada correctamente")
     }
@@ -41,6 +63,7 @@ const Inventory = () => {
       p.clave === productoEditado.clave ? productoEditado : p
     )
     setProductos(nuevosProductos)
+    guardarEnLocalStorage(nuevosProductos)
     setShowEditModal(false)
     mostrarMensaje("Producto editado correctamente")
   }
@@ -76,7 +99,6 @@ const Inventory = () => {
             </button>
           </div>
 
-          {/* Tabla con encabezado con corner radius */}
           <div className="border border-gray-300 overflow-hidden">
             <table className="w-full text-sm border-collapse">
               <thead className="bg-[#395886] text-white sticky top-0 z-10">
@@ -119,7 +141,6 @@ const Inventory = () => {
           </div>
         </div>
 
-        {/* Panel derecho */}
         <div className="w-48 flex flex-col gap-4">
           <div className="flex flex-col gap-2">
             <label className="text-gray-700 font-medium text-sm text-right">Cantidad actual:</label>
@@ -144,7 +165,6 @@ const Inventory = () => {
         </div>
       </div>
 
-      {/* Modales */}
       {showForm && (
         <InventoryForm
           onClose={() => setShowForm(false)}
