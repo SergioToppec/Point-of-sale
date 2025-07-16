@@ -55,7 +55,7 @@ const InventarioActual = ({ onClose }) => {
             </div>
 
             <div className="px-3">
-              <div className="max-h-[200px] overflow-y-scroll hide-scrollbar border border-black border-opacity-30 rounded-b-md">
+              <div className="max-h-[200px] overflow-y-scroll hide-scrollbar border border-black border-opacity-30 rounded-md">
                 <table className="w-full text-sm">
                   <thead className="sticky top-0 z-10">
                     <tr style={{ backgroundColor: "#395886", color: "white" }}>
