@@ -14,7 +14,7 @@ const clients_data = [
   },
   {
     codigo: "CTE0002",
-    razon: "Arturogei",
+    razon: "Arturo",
     rfc: "XAXX010101002",
     domicilio: "Calle Falsa 123",
     cp: "77539",

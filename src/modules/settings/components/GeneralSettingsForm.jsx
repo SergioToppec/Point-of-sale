@@ -2,7 +2,7 @@ import { FaCircleExclamation } from "react-icons/fa6";
 
 export default function GeneralSettingsForm() {
   return (
-    <div className="flex flex-col items-center  w-full h-full  mt-4">
+    <div className="flex flex-col items-center w-full h-full  mt-4">
       <label className="text-2xl text-azulOscuro font-medium">
         Configuración general
       </label>
@@ -10,7 +10,7 @@ export default function GeneralSettingsForm() {
         <div className="grid grid-cols-2 justify-between items-center w-full mt-4 ">
         <div className="flex flex-row items-center justify-start ml-4 mt-4">
           <span>
-            <FaCircleExclamation size={18} title="ola arturgei" tooltip="Información adicional sobre la opción 1" className="text-azulOscuro mr-2" />
+            <FaCircleExclamation size={18} title="ola arturo" tooltip="Información adicional sobre la opción 1" className="text-azulOscuro hover:text-azulFuerte mr-2" />
           </span>
           <input
             type="checkbox"
@@ -21,7 +21,7 @@ export default function GeneralSettingsForm() {
         </div>
         <div className="flex flex-row items-center justify-start ml-4 mt-4">
           <span>
-            <FaCircleExclamation size={18} className="text-azulOscuro mr-2" />
+            <FaCircleExclamation size={18} className="text-azulOscuro hover:text-azulFuerte mr-2" />
           </span>
           <input
             type="checkbox"
@@ -43,7 +43,7 @@ export default function GeneralSettingsForm() {
         </div>
         <div className="flex flex-row items-center justify-start ml-4 mt-4">
           <span>
-            <FaCircleExclamation size={18} className="text-azulOscuro mr-2 hover:text-azulClaro" />
+            <FaCircleExclamation size={18} className="text-azulOscuro mr-2 hover:text-azulFuerte" />
           </span>
           <input
             type="checkbox"
