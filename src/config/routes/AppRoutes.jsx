@@ -11,11 +11,13 @@ import Payments from "@/ui/payments/Payments";
 import Reports from "@/ui/reports/Reports";
 import Settings from "@/ui/settings/Settins";
 import Permissions from "@/ui/permissions/Permissions";
+import SplashScreen from "../../ui/components/SplashScreen";
 
 export default function AppRoutes() {
   return (
     <Routes>
-      <Route path="/" element={<Login />} />
+      <Route path="/" element={<SplashScreen />} />
+      <Route path="/login" element={<Login />} />
       <Route path="/prefixscreen" element={<PrefixScreen />} />
 
       <Route path="/dashboard" element={<AppLayout />}>

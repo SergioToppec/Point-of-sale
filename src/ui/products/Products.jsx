@@ -1,12 +1,11 @@
-"use client"
-
 import { useEffect, useState } from "react"
 import { FaPlus, FaEdit, FaBoxOpen } from "react-icons/fa"
 import InventoryForm from "../../ui/products/modules/IventoryForm"
 import AddQuantityModal from "../../ui/products/modules/AddQuantityModal"
 import EditProductModal from "../../ui/products/modules/EditProductModal"
 import SuccessModal from "../../ui/products/components/SuccessModal"
-
+// mucho texto xd 
+// Este es un componente de inventario que permite agregar, editar y gestionar productos en un inventario local.
 const Inventory = () => {
   const [productos, setProductos] = useState([])
   const [showForm, setShowForm] = useState(false)
