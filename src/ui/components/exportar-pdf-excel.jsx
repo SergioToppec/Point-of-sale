@@ -5,7 +5,7 @@ import * as XLSX from "xlsx"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faFilePdf, faFileExcel } from "@fortawesome/free-solid-svg-icons"
 
-// ✅ Ya no se usa `interface`, porque estás en archivo `.jsx`
+// AQUI CCOMIENZA LO BUENO XD
 
 export default function ExportarPDFExcel({ data, fileName = "export" }) {
   const exportarPDF = () => {
