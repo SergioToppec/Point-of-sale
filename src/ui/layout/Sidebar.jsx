@@ -139,7 +139,7 @@ export default function Sidebar() {
             </button>
           </li>
 
-          <li onClick={() => navigate("billings")} className="flex items-center h-10 hover:font-semibold hover:rounded-[13px] hover:bg-azulClaro ">
+          <li onClick={() => navigate("invoices")} className="flex items-center h-10 hover:font-semibold hover:rounded-[13px] hover:bg-azulClaro ">
             <button>
               <FaFileLines
                 size={20}

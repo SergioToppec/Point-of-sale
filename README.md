@@ -1,6 +1,6 @@
 # Sistema de Punto de Venta Modular para Gestión Integral de Tiendas
 
-Este proyecto es una aplicación de escritorio desarrollada con  **Electron** ,  **React** , **Vite** y  **Tailwind CSS** , pensada para operar de forma modular y escalable. Su objetivo es ofrecer una solución integral para comercios, incluyendo funcionalidades de venta, facturación, devoluciones, control de inventario, gestión de clientes, reportes y configuraciones de periféricos.
+Este proyecto es una aplicación de escritorio desarrollada con **Electron**, **React**, **Vite** y **Tailwind CSS**, pensada para operar de forma modular y escalable. Su objetivo es ofrecer una solución integral para comercios, incluyendo funcionalidades de venta, facturación, devoluciones, control de inventario, gestión de clientes, reportes y configuraciones de periféricos.
 
 ---
 
@@ -12,18 +12,20 @@ Este proyecto es una aplicación de escritorio desarrollada con  **Electron** , 
 * Integración con periféricos (impresoras, lectores de código, balanzas).
 * Reportes financieros y exportación.
 * Estilos con TailwindCSS y layouts adaptables.
-* Base de datos local con SQServer.
+* Base de datos local con SQLServer.
+* Backend con Express para API REST.
 
 ---
 
 ## Tecnologías Utilizadas
 
-* **Electron v22** : Plataforma base para apps de escritorio.
-* **React + Vite** : Frontend moderno y veloz.
-* **Tailwind CSS v3** : Estilado utilitario y responsivo.
-* **Zustand** : Manejo de estado simple y escalable.
+* **Electron v22**: Plataforma base para apps de escritorio.
+* **React + Vite**: Frontend moderno y veloz.
+* **Tailwind CSS v3**: Estilado utilitario y responsivo.
+* **Zustand**: Manejo de estado simple y escalable.
 * **SQLServer**: Almacenamiento offline.
-* **XState (opcional)** : Modelado de flujos como ventas y devoluciones.
+* **Express**: Backend para API REST.
+* **XState (opcional)**: Modelado de flujos como ventas y devoluciones.
 
 ---
 
@@ -31,14 +33,13 @@ Este proyecto es una aplicación de escritorio desarrollada con  **Electron** , 
 
 ```bash
 src/
-├── modules/                     # Módulos de negocio (auténticación, ventas, etc.)
-│   ├── auth/                    # Inicio de sesión y roles
-│   ├── sales/                   # Flujo de venta POS
-│   ├── billing/                 # Facturación y devoluciones
-│   ├── products/                # Inventario
-│   ├── customers/               # CRM básico
-│   ├── reporting/               # Reportes financieros
-│   └── system/                  # Configuración general
+├── assets/                      # Recursos estáticos (logos, fuentes, íconos)
+│   ├── fonts/                   # Fuentes personalizadas (Poppins)
+│   ├── icons/                   # Íconos
+│   └── logos/                   # Logotipos
+│
+├── config/                      # Configuración global
+│   └── routes/                  # Rutas protegidas y públicas
 │
 ├── core/                        # Lógica transversal reusable
 │   ├── api/                     # Conexión a servicios/API/electronBridge
@@ -46,21 +47,105 @@ src/
 │   ├── utils/                   # Helpers y validadores
 │   └── types/                   # Tipos globales
 │
+├── electron/                    # Lógica nativa (Electron)
+│   ├── main.js                  # Punto de entrada
+│   ├── hardware/                # Lectura de periféricos (balanzas, cajones)
+│   └── storage/                 # DB local, archivos offline
+│
+├── modules/                     # Módulos de negocio (autenticación, ventas, etc.)
+│   ├── auth/                    # Inicio de sesión y roles
+│   ├── billing/                 # Facturación y devoluciones
+│   ├── clients/                 # Gestión de clientes
+│   ├── products/                # Inventario
+│   ├── reports/                 # Reportes financieros
+│   ├── sales/                   # Flujo de venta POS
+│   └── settings/                # Configuración general
+│
 ├── store/                       # Zustand store global (auth, caja, productos)
 │
-├── assets/                      # Recursos estáticos (logos, iconos)
-│
 ├── ui/                          # Interfaz visual y componentes
-│   ├── layout/                  # AppLayout, AuthLayout
+│   ├── auth/                    # Pantallas y componentes de autenticación
+│   ├── clients/                 # Pantallas y componentes de clientes
 │   ├── components/              # Botones, modales, campos
-│   └── pos/                     # Vista específica POS
+│   ├── dashboard/               # Vista del dashboard
+│   ├── layout/                  # AppLayout, Header, Sidebar
+│   ├── pos/                     # Vista específica POS
+│   ├── reports/                 # Pantallas y componentes de reportes
+│   ├── settings/                # Configuración visual
+│   └── startup/                 # Pantalla inicial de carga
 │
-├── config/                      # Constantes, rutas protegidas
+├── index.html                   # Archivo principal HTML
 │
-└── electron/                    # Lógica nativa (Electron)
-    ├── main.js                  # Punto de entrada
-    ├── hardware/                # Lectura de periféricos (balanzas, cajones)
-    └── storage/                 # DB local, archivos offline
+│
+└── tailwind.config.js           # Añadir estilos personalizados
+
+
+```
+
+---
+
+## Configuración de TailwindCSS
+
+El archivo `tailwind.config.js` ha sido personalizado para incluir:
+
+* **Colores personalizados**: Se añadieron colores específicos para la marca.
+* **Fuentes**: Uso de la familia de fuentes `Poppins`.
+
+Ejemplo de configuración:
+
+```javascript
+module.exports = {
+  content: ['./src/**/*.{js,jsx,ts,tsx}'],
+  theme: {
+    extend: {
+      colors: {
+        primary: '#1D4ED8',
+        secondary: '#9333EA',
+      },
+      fontFamily: {
+        sans: ['Poppins', 'sans-serif'],
+      },
+    },
+  },
+  plugins: [
+    require('@tailwindcss/forms'),
+  ],
+};
+```
+
+---
+
+## Conexión con el Backend
+
+El backend utiliza **Express** para manejar las rutas y **SQLServer** como base de datos. La estructura básica es la siguiente:
+
+```javascript
+const express = require('express');
+const sql = require('mssql');
+
+const app = express();
+app.use(express.json());
+
+// Configuración de SQLServer
+const dbConfig = {
+  user: 'usuario',
+  password: 'contraseña',
+  server: 'localhost',
+  database: 'nombre_base_datos',
+};
+
+// Endpoint de ejemplo
+app.get('/api/products', async (req, res) => {
+  try {
+    const pool = await sql.connect(dbConfig);
+    const result = await pool.request().query('SELECT * FROM Products');
+    res.json(result.recordset);
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+});
+
+app.listen(3000, () => console.log('Backend corriendo en http://localhost:3000'));
 ```
 
 ---
@@ -112,20 +197,13 @@ npm run electron
 
 ## Flujo General del Sistema
 
-1. **Inicio** : Se abre la aplicación con prefijo de caja o tienda.
-2. **Login** : Validación de usuario y rol.
-3. **Dashboard** : Vista general de ventas activas.
-4. **POS** : Agregar productos, cobrar, generar ticket.
-5. **Facturación** : Emitir factura electrónica con validación.
-6. **Reportes** : Visualizar cortes, ventas, devoluciones.
-7. **Configuración** : Parámetros, periféricos, roles.
-
----
-
-## Consideraciones Adicionales
-
-* La carpeta `dist/` se genera con `vite build`. No la edites manualmente.
-* Se puede empaquetar con `electron-builder` o `electron-packager` (no incluido en este repo).
+1. **Login**: Validación de usuario y rol.
+2. **Inicio**: Se abre la aplicación con prefijo de caja o tienda.
+3. **Dashboard**: Vista general de ventas activas.
+4. **POS**: Agregar productos, cobrar, generar ticket.
+5. **Facturación**: Emitir factura electrónica con validación.
+6. **Reportes**: Visualizar cortes, ventas, devoluciones.
+7. **Configuración**: Parámetros, periféricos, roles.
 
 ---
 

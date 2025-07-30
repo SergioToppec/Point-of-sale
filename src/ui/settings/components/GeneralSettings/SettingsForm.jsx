@@ -1,7 +1,7 @@
 import SidebarGeneral from "./SidebarGeneral";
-import GeneralSettingsForm from "@/modules/settings/components/GeneralSettingsForm";
-import SalesForm from "@/modules/settings/components/SalesForm";
-import InventoryForm from "@/modules/settings/components/InventoryForm";
+import GeneralSettingsForm from "@/modules/settings/components/GeneralSettings/GeneralSettingsForm";
+import SalesForm from "@/modules/settings/components/GeneralSettings/SalesForm";
+import InventoryForm from "@/modules/settings/components/GeneralSettings/InventoryForm";
 import { useState } from "react";
 export default function SettingsForm({ onClose }) {
   const [selected, setSelected] = useState("general");

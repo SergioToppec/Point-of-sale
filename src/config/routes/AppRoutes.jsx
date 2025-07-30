@@ -6,12 +6,12 @@ import AppLayout from "@/ui/layout/AppLayout";
 import Clients from "@/ui/clients/Clients";
 import POS from "@/ui/pos/POS";
 import Products from "@/ui/products/Products";
-import Billing from "@/ui/billing/Billing";
+import Invoices from "@/ui/invoices/Invoices";
 import Payments from "@/ui/payments/Payments";
 import Reports from "@/ui/reports/Reports";
 import Settings from "@/ui/settings/Settins";
 import Permissions from "@/ui/permissions/Permissions";
-import GeneralSettings from "@/ui/settings/Views/GeneralSettings";
+
 
 export default function AppRoutes() {
   return (
@@ -24,7 +24,7 @@ export default function AppRoutes() {
         <Route path="pos" element={<POS />} />
         <Route path="products" element={<Products />} />
         <Route path="clients" element={<Clients />} />
-        <Route path="billings" element={<Billing />} />
+        <Route path="invoices" element={<Invoices />} />
         <Route path="payments" element={<Payments />} />
         <Route path="reports" element={<Reports />} />
         <Route path="settings" element={<Settings />} />

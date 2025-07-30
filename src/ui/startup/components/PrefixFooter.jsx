@@ -1,8 +1,8 @@
 export default function PrefixFooter() {
     return(
-        <div className=" ">
+        <div>
            <p className="font-bold text-xl mr-6 p-4">
-           ABC
+ 
            </p> 
         </div>
     )
