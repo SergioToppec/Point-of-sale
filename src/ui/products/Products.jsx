@@ -4,8 +4,7 @@ import InventoryForm from "../../ui/products/modules/IventoryForm"
 import AddQuantityModal from "../../ui/products/modules/AddQuantityModal"
 import EditProductModal from "../../ui/products/modules/EditProductModal"
 import SuccessModal from "../../ui/products/components/SuccessModal"
-// mucho texto xd 
-// Este es un componente de inventario que permite agregar, editar y gestionar productos en un inventario local.
+
 const Inventory = () => {
   const [productos, setProductos] = useState([])
   const [showForm, setShowForm] = useState(false)
@@ -98,19 +97,17 @@ const Inventory = () => {
             </button>
           </div>
 
-          <div className="border border-gray-300 overflow-hidden">
-            <table className="w-full text-sm border-collapse">
-              <thead className="bg-[#395886] text-white sticky top-0 z-10">
-                <tr>
-                  <th className="p-3 text-center font-medium rounded-tl-[10px]">Clave producto</th>
-                  <th className="p-3 text-center font-medium">Descripción</th>
-                  <th className="p-3 text-center font-medium">Cantidad</th>
-                  <th className="p-3 text-center font-medium rounded-tr-[10px]">Precio</th>
-                </tr>
-              </thead>
-            </table>
-            <div className="max-h-[200px] overflow-y-auto hide-scrollbar">
+          <div className="border border-gray-300 overflow-hidden rounded-[10px]">
+            <div className="max-h-[250px] overflow-y-auto hide-scrollbar">
               <table className="w-full text-sm border-collapse">
+                <thead className="bg-[#395886] text-white sticky top-0 z-10">
+                  <tr>
+                    <th className="py-3 px-4 text-center font-medium">Clave producto</th>
+                    <th className="py-3 px-4 text-center font-medium">Descripción</th>
+                    <th className="py-3 px-4 text-center font-medium">Cantidad</th>
+                    <th className="py-3 px-4 text-center font-medium">Precio</th>
+                  </tr>
+                </thead>
                 <tbody>
                   {productos.length === 0 ? (
                     <tr>
@@ -127,10 +124,10 @@ const Inventory = () => {
                         }`}
                         onClick={() => setProductoSeleccionado(prod)}
                       >
-                        <td className="p-2">{prod.clave}</td>
-                        <td className="p-2">{prod.descripcion}</td>
-                        <td className="p-2">{prod.cantidad}</td>
-                        <td className="p-2">${prod.precio.toFixed(2)}</td>
+                        <td className="py-2 px-4">{prod.clave}</td>
+                        <td className="py-2 px-4">{prod.descripcion}</td>
+                        <td className="py-2 px-4">{prod.cantidad}</td>
+                        <td className="py-2 px-4">${prod.precio.toFixed(2)}</td>
                       </tr>
                     ))
                   )}
