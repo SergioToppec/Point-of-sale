@@ -1,5 +1,3 @@
-"use client"
-
 import { useEffect, useState } from "react"
 
 const HistorialModal = ({ onClose }) => {
@@ -16,16 +14,16 @@ const HistorialModal = ({ onClose }) => {
     <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
       <div className="bg-white rounded-lg shadow-lg overflow-hidden max-w-4xl w-full mx-4">
         {/* Header */}
-        <div className="text-white py-3 px-4" style={{ backgroundColor: "#395886" }}>
+        <div className="bg-azulOscuro text-white py-3 px-4">
           <h1 className="text-lg font-medium">Historial</h1>
         </div>
 
-        {/* Tabla */}
+        {/* Tabla de eso */}
         <div className="p-3">
           <div className="max-h-[200px] overflow-y-scroll hide-scrollbar border border-black border-opacity-30 rounded-b-md">
             <table className="w-full border-collapse text-sm">
               <thead className="sticky top-0 z-10">
-                <tr style={{ backgroundColor: "#395886", color: "white" }}>
+                <tr className="bg-azulOscuro text-white">
                   <th className="px-3 py-2 text-center font-medium rounded-tl-[7px]">Clave producto</th>
                   <th className="px-3 py-2 text-center font-medium">Descripción</th>
                   <th className="px-3 py-2 text-center font-medium">Cantidad</th>
@@ -60,8 +58,7 @@ const HistorialModal = ({ onClose }) => {
         <div className="p-3 flex justify-end">
           <button
             onClick={onClose}
-            className="text-white px-5 py-0.5 rounded text-sm transition-colors rounded-[10px]"
-            style={{ backgroundColor: "#B21613" }}
+            className="bg-rojoFuerte text-white px-5 py-0.5 rounded text-sm transition-colors rounded-[10px]"
           >
             Salir
           </button>

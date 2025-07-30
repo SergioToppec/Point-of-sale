@@ -67,7 +67,7 @@ const Inventory = () => {
   }
 
   return (
-    <div className="p-8 bg-white min-h-screen overflow-hidden">
+    <div className="p-8 bg-white min-h-screen overflow-hidden font-sans">
       <SuccessModal
         isOpen={successModal.isOpen}
         message={successModal.message}
@@ -79,7 +79,7 @@ const Inventory = () => {
           <div className="flex justify-between items-center mb-2">
             <button
               onClick={() => setShowForm(true)}
-              className="flex items-center gap-2 bg-[#395886] hover:bg-[#314d71] text-white font-medium px-3 py-1.5 rounded-[10px] text-xs"
+              className="flex items-center gap-2 bg-azulOscuro hover:bg-azulFuerte text-white font-medium px-3 py-1.5 rounded-[10px] text-xs"
             >
               <FaPlus className="w-3 h-3" />
               Nuevo producto
@@ -90,7 +90,7 @@ const Inventory = () => {
                   setShowEditModal(true)
                 }
               }}
-              className="flex items-center gap-2 bg-[#395886] hover:bg-[#314d71] text-white font-medium px-3 py-1.5 rounded-[10px] text-xs"
+              className="flex items-center gap-2 bg-azulOscuro hover:bg-azulFuerte text-white font-medium px-3 py-1.5 rounded-[10px] text-xs"
             >
               <FaEdit className="w-3 h-3" />
               Modificar producto
@@ -100,7 +100,7 @@ const Inventory = () => {
           <div className="border border-gray-300 overflow-hidden rounded-[10px]">
             <div className="max-h-[250px] overflow-y-auto hide-scrollbar">
               <table className="w-full text-sm border-collapse">
-                <thead className="bg-[#395886] text-white sticky top-0 z-10">
+                <thead className="bg-azulOscuro text-white sticky top-0 z-10">
                   <tr>
                     <th className="py-3 px-4 text-center font-medium">Clave producto</th>
                     <th className="py-3 px-4 text-center font-medium">Descripción</th>
@@ -120,7 +120,7 @@ const Inventory = () => {
                       <tr
                         key={index}
                         className={`text-center border-t border-gray-200 cursor-pointer ${
-                          productoSeleccionado?.clave === prod.clave ? "bg-[#D5DEEF]" : ""
+                          productoSeleccionado?.clave === prod.clave ? "bg-azulClaro" : ""
                         }`}
                         onClick={() => setProductoSeleccionado(prod)}
                       >
@@ -144,7 +144,7 @@ const Inventory = () => {
               type="text"
               readOnly
               value={productos.reduce((sum, p) => sum + p.cantidad, 0)}
-              className="text-center border border-gray-300 rounded-[10px] bg-[#D5DEEF] font-medium text-lg py-2 h-10"
+              className="text-center border border-gray-300 rounded-[10px] bg-azulClaro font-medium text-lg py-2 h-10"
             />
           </div>
           <button
@@ -153,7 +153,7 @@ const Inventory = () => {
                 setShowQuantityModal(true)
               }
             }}
-            className="flex items-center gap-2 justify-center bg-[#395886] hover:bg-[#314d71] text-white font-medium px-3 py-1.5 rounded-[10px] text-xs"
+            className="flex items-center gap-2 justify-center bg-azulOscuro hover:bg-azulFuerte text-white font-medium px-3 py-1.5 rounded-[10px] text-xs"
           >
             <FaBoxOpen className="w-3 h-3" />
             Agregar cantidad

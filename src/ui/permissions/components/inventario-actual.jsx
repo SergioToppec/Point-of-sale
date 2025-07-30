@@ -30,15 +30,14 @@ const InventarioActual = ({ onClose }) => {
       {!redirecting && (
         <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
           <div className="bg-white rounded-lg shadow-lg overflow-hidden max-w-4xl w-full mx-4">
-            <div className="text-white py-3 px-4" style={{ backgroundColor: "#395886" }}>
+            <div className="text-white py-3 px-4 bg-azulOscuro">
               <h1 className="text-lg font-medium">Inventario actual</h1>
             </div>
 
             <div className="p-3 flex justify-between items-center">
               <button
                 onClick={() => setRedirecting(true)}
-                className="text-white px-2 py-1 rounded text-xs flex items-center gap-1 transition-all hover:opacity-90"
-                style={{ backgroundColor: "#395886" }}
+                className="text-white px-2 py-1 rounded text-xs flex items-center gap-1 transition-all hover:opacity-90 bg-azulOscuro"
               >
                 <FiEdit className="w-3 h-3" />
                 Editar inventario
@@ -46,8 +45,7 @@ const InventarioActual = ({ onClose }) => {
 
               <button
                 onClick={() => setShowHistorial(true)}
-                className="text-white px-2 py-1 rounded text-xs flex items-center gap-1 transition-all hover:opacity-90"
-                style={{ backgroundColor: "#395886" }}
+                className="text-white px-2 py-1 rounded text-xs flex items-center gap-1 transition-all hover:opacity-90 bg-azulOscuro"
               >
                 <FiClock className="w-3 h-3" />
                 Historial de productos
@@ -57,8 +55,8 @@ const InventarioActual = ({ onClose }) => {
             <div className="px-3">
               <div className="max-h-[200px] overflow-y-scroll hide-scrollbar border border-black border-opacity-30 rounded-md">
                 <table className="w-full text-sm">
-                  <thead className="sticky top-0 z-10">
-                    <tr style={{ backgroundColor: "#395886", color: "white" }}>
+                  <thead className="sticky top-0 z-10 bg-azulOscuro text-white">
+                    <tr>
                       <th className="px-3 py-2 text-center font-medium rounded-tl-md">Clave producto</th>
                       <th className="px-3 py-2 text-center font-medium">Descripción</th>
                       <th className="px-3 py-2 text-center font-medium">Cantidad</th>
@@ -82,8 +80,7 @@ const InventarioActual = ({ onClose }) => {
             <div className="p-3 flex justify-end">
               <button
                 onClick={onClose}
-                className="text-white px-5 py-0.5 rounded text-sm transition-colors"
-                style={{ backgroundColor: "#B21613" }}
+                className="text-white px-5 py-0.5 rounded text-sm transition-colors bg-rojoFuerte hover:bg-rojoFuerte/90"
               >
                 Salir
               </button>

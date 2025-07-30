@@ -20,7 +20,7 @@ export default function Reports() {
       <div className="flex flex-wrap gap-6 items-start">
         <button
           onClick={() => setShowInventario(true)}
-          className="bg-[#395886] hover:bg-[#314d71] text-white w-[180px] h-[110px] rounded-lg flex flex-col items-center justify-center gap-2 transition-colors duration-200"
+          className="bg-azulOscuro hover:bg-azulOscuro/90 text-white w-[180px] h-[110px] rounded-lg flex flex-col items-center justify-center gap-2 transition-colors duration-200"
         >
           <FaBoxOpen size={24} />
           <span className="text-sm font-medium text-center">Reporte de inventario</span>
@@ -28,27 +28,29 @@ export default function Reports() {
 
         <button
           onClick={() => setShowClientes(true)}
-          className="bg-[#395886] hover:bg-[#314d71] text-white w-[180px] h-[110px] rounded-lg flex flex-col items-center justify-center gap-2 transition-colors duration-200"
+          className="bg-azulOscuro hover:bg-azulOscuro/90 text-white w-[180px] h-[110px] rounded-lg flex flex-col items-center justify-center gap-2 transition-colors duration-200"
         >
           <FaUsers size={24} />
           <span className="text-sm font-medium text-center">Reporte de clientes</span>
         </button>
 
-        <button className="bg-[#395886] hover:bg-[#314d71] text-white w-[180px] h-[110px] rounded-lg flex flex-col items-center justify-center gap-2 transition-colors duration-200">
+        <button
+          className="bg-azulOscuro hover:bg-azulOscuro/90 text-white w-[180px] h-[110px] rounded-lg flex flex-col items-center justify-center gap-2 transition-colors duration-200"
+        >
           <FaShoppingCart size={24} />
           <span className="text-sm font-medium text-center">Reporte de ventas</span>
         </button>
 
         <button
           onClick={() => setShowReportePagos(true)}
-          className="bg-[#395886] hover:bg-[#314d71] text-white w-[180px] h-[110px] rounded-lg flex flex-col items-center justify-center gap-2 transition-colors duration-200"
+          className="bg-azulOscuro hover:bg-azulOscuro/90 text-white w-[180px] h-[110px] rounded-lg flex flex-col items-center justify-center gap-2 transition-colors duration-200"
         >
           <FaCreditCard size={24} />
           <span className="text-sm font-medium text-center">Reporte de pago</span>
         </button>
       </div>
 
-      {/* Modales */}
+      {/* Modales todos aun falta uno*/}
       <ReportePagosModal isOpen={showReportePagos} onClose={() => setShowReportePagos(false)} />
       <RegistroClientesModal isOpen={showClientes} onClose={() => setShowClientes(false)} />
       <ReporteInventarioModal isOpen={showInventario} onClose={() => setShowInventario(false)} />

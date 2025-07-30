@@ -45,27 +45,27 @@ const RegistroClientesModal = ({ isOpen, onClose }) => {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-40">
       <div className="bg-white rounded-lg shadow-xl w-[800px] max-w-4xl mx-4">
-        {/* Header */}
-        <div className="bg-[#395886] text-white p-4 rounded-t-lg flex justify-between items-center">
+        {/* Header algo chill */}
+        <div className="bg-azulOscuro text-white p-4 rounded-t-lg flex justify-between items-center">
           <h3 className="text-lg font-bold">Registro de clientes</h3>
           <button onClick={onClose} className="text-white hover:text-gray-200">
             <FaTimes />
           </button>
         </div>
 
-        {/* Content */}
+        {/* Content xc*/}
         <div className="p-6">
-          {/* Botón Actualizar */}
+          {/* Botón Actualizar :C*/}
           <div className="flex justify-end items-center mb-4">
-            <button className="bg-[#395886] hover:bg-[#314d71] text-white px-4 py-2 rounded-lg font-medium transition-colors text-sm flex items-center gap-2">
+            <button className="bg-azulOscuro hover:bg-[#314d71] text-white px-4 py-2 rounded-lg font-medium transition-colors text-sm flex items-center gap-2">
               <FaSyncAlt /> Actualizar
             </button>
           </div>
 
-          {/* Tabla con scroll */}
+          
           <div className="mb-6 rounded-lg overflow-hidden border border-gray-300 max-h-[250px] overflow-y-auto hide-scrollbar">
             <table className="w-full text-sm">
-              <thead className="bg-[#395886] text-white sticky top-0 z-10">
+              <thead className="bg-azulOscuro text-white sticky top-0 z-10">
                 <tr>
                   <th className="p-3 text-center font-medium">Código</th>
                   <th className="p-3 text-center font-medium">Razón social</th>
@@ -96,12 +96,12 @@ const RegistroClientesModal = ({ isOpen, onClose }) => {
             </table>
           </div>
 
-          {/* Exportar y Cancelar */}
+          {/* Exportar y Cancelar en uno jajaa*/}
           <div className="flex justify-between items-end">
             <ExportarPDFExcel data={clients} fileName="registro-clientes" />
             <button
               onClick={onClose}
-              className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium transition-colors text-sm"
+              className="bg-rojoFuerte hover:bg-[#92110f] text-white px-4 py-2 rounded-lg font-medium transition-colors text-sm"
             >
               Cancelar
             </button>
