@@ -6,6 +6,7 @@ export default function Card({
   onClick,
   className = "",
   titleClassName = "",
+  subtitleClassName = "",
 }) {
   return (
     <button
@@ -20,7 +21,9 @@ export default function Card({
         )}
       </span>
       <span className={`text-center font-bold ${titleClassName}`}>{title}</span>
-      {subtitle && <span className="text-center text-sm text-gray-500">{subtitle}</span>}
+      {subtitle && (
+        <span className={`text-center text-sm ${subtitleClassName}`}>{subtitle}</span>
+      )}
     </button>
   );
 }
