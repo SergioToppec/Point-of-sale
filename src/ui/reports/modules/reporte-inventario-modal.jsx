@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { FaTimes, FaFilter } from "react-icons/fa"
 import ExportarPDFExcel from "../../components/exportar-pdf-excel"
 
@@ -28,21 +28,16 @@ const ReporteInventarioModal = ({ isOpen, onClose }) => {
   const [showCostoTotalInventario, setShowCostoTotalInventario] = useState(false)
   const [isFilterDropdownOpen, setIsFilterDropdownOpen] = useState(false)
   const [filter, setFilter] = useState("Todos")
+  const [productos, setProductos] = useState([])
 
-  const inventory = [
-    { clave: "5012345678900", descripcion: "Coca cola desechable 600 ml", cantidad: 35, precio: 19.5 },
-    { clave: "5012345678901", descripcion: "Pepsi lata 355 ml", cantidad: 50, precio: 15.0 },
-    { clave: "5012345678902", descripcion: "Agua Bonafont 1L", cantidad: 20, precio: 12.0 },
-    { clave: "5012345678903", descripcion: "Jugo del Valle 1L", cantidad: 15, precio: 22.0 },
-    { clave: "5012345678904", descripcion: "Sabritas 40g", cantidad: 60, precio: 10.0 },
-    { clave: "5012345678905", descripcion: "Galletas Oreo 133g", cantidad: 40, precio: 18.0 },
-    { clave: "5012345678906", descripcion: "Chips Ahoy 100g", cantidad: 25, precio: 20.0 },
-    { clave: "5012345678907", descripcion: "Sprite lata 355 ml", cantidad: 45, precio: 14.0 },
-    { clave: "5012345678908", descripcion: "Powerade 500 ml", cantidad: 30, precio: 17.5 },
-    { clave: "5012345678909", descripcion: "Red Bull 250 ml", cantidad: 10, precio: 30.0 },
-  ]
+  useEffect(() => {
+    const productosGuardados = localStorage.getItem("productos")
+    if (productosGuardados) {
+      setProductos(JSON.parse(productosGuardados))
+    }
+  }, [])
 
-  const filteredInventory = [...inventory]
+  const filteredInventory = [...productos]
   if (filter === "Cantidad mas alta") {
     filteredInventory.sort((a, b) => b.cantidad - a.cantidad)
   } else if (filter === "Cantidad mas baja") {
@@ -50,7 +45,7 @@ const ReporteInventarioModal = ({ isOpen, onClose }) => {
   }
 
   const totalInventoryCost = filteredInventory.reduce(
-    (sum, item) => sum + item.cantidad * item.precio,
+    (sum, item) => sum + item.precio * item.cantidad,
     0
   )
 
@@ -114,7 +109,6 @@ const ReporteInventarioModal = ({ isOpen, onClose }) => {
               </div>
             </div>
 
-            
             <div className="mb-6 rounded-lg border border-gray-300 max-h-[300px] overflow-y-auto hide-scrollbar z-0 relative">
               <table className="w-full text-sm">
                 <thead className="bg-azulOscuro text-white sticky top-0 z-10">

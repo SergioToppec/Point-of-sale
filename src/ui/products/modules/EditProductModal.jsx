@@ -45,7 +45,7 @@ const EditProductModal = ({ producto, onClose, onUpdate }) => {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 font-sans">
       <div className="bg-white w-[460px] rounded-md shadow-lg overflow-hidden">
-        <div className="bg-azulOscuro text-white text-lg font-bold px-6 py-3">
+        <div className="bg-azulOscuro text-white text-lg font-bold px-6 py-3 font-sans">
           Editar producto
         </div>
         <div className="p-6 space-y-4 text-sm">

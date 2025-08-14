@@ -47,7 +47,7 @@ const Inventory = () => {
   const handleAgregarCantidad = (cantidad) => {
     if (productoSeleccionado) {
       const nuevosProductos = productos.map((p) =>
-        p.clave === productoSeleccionado.clave ? { ...p, cantidad: p.cantidad + cantidad } : p
+        p.clave === productoSeleccionado.clave ? { ...p, cantidad: p.cantidad + cantidad } : p,
       )
       setProductos(nuevosProductos)
       guardarEnLocalStorage(nuevosProductos)
@@ -57,13 +57,17 @@ const Inventory = () => {
   }
 
   const handleEditarProducto = (productoEditado) => {
-    const nuevosProductos = productos.map((p) =>
-      p.clave === productoEditado.clave ? productoEditado : p
-    )
+    const nuevosProductos = productos.map((p) => (p.clave === productoEditado.clave ? productoEditado : p))
     setProductos(nuevosProductos)
     guardarEnLocalStorage(nuevosProductos)
     setShowEditModal(false)
     mostrarMensaje("Producto editado correctamente")
+  }
+
+  const handleEditClick = (producto, e) => {
+    e.stopPropagation()
+    setProductoSeleccionado(producto)
+    setShowEditModal(true)
   }
 
   return (
@@ -84,17 +88,7 @@ const Inventory = () => {
               <FaPlus className="w-3 h-3" />
               Nuevo producto
             </button>
-            <button
-              onClick={() => {
-                if (productoSeleccionado) {
-                  setShowEditModal(true)
-                }
-              }}
-              className="flex items-center gap-2 bg-azulOscuro hover:bg-azulFuerte text-white font-medium px-3 py-1.5 rounded-[10px] text-xs"
-            >
-              <FaEdit className="w-3 h-3" />
-              Modificar producto
-            </button>
+            {/* Botón "Modificar con el nuevo estilo malditos */}
           </div>
 
           <div className="border border-gray-300 overflow-hidden rounded-[10px]">
@@ -106,12 +100,13 @@ const Inventory = () => {
                     <th className="py-3 px-4 text-center font-medium">Descripción</th>
                     <th className="py-3 px-4 text-center font-medium">Cantidad</th>
                     <th className="py-3 px-4 text-center font-medium">Precio</th>
+                    <th className="py-3 px-4 text-center font-medium">Acción</th>
                   </tr>
                 </thead>
                 <tbody>
                   {productos.length === 0 ? (
                     <tr>
-                      <td colSpan={4} className="p-8 text-center text-gray-500">
+                      <td colSpan={5} className="p-8 text-center text-gray-500">
                         No hay productos en el inventario
                       </td>
                     </tr>
@@ -128,6 +123,15 @@ const Inventory = () => {
                         <td className="py-2 px-4">{prod.descripcion}</td>
                         <td className="py-2 px-4">{prod.cantidad}</td>
                         <td className="py-2 px-4">${prod.precio.toFixed(2)}</td>
+                        <td className="py-2 px-4">
+                          <button
+                            onClick={(e) => handleEditClick(prod, e)}
+                            className="text-azulOscuro hover:text-azulFuerte transition-colors p-1"
+                            title="Editar producto"
+                          >
+                            <FaEdit className="w-4 h-4" />
+                          </button>
+                        </td>
                       </tr>
                     ))
                   )}
