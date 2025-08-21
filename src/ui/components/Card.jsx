@@ -20,9 +20,9 @@ export default function Card({
           icon
         )}
       </span>
-      <span className={`text-center font-bold ${titleClassName}`}>{title}</span>
+      <span className={`font-bold ${titleClassName}`}>{title}</span>
       {subtitle && (
-        <span className={`text-center text-sm ${subtitleClassName}`}>{subtitle}</span>
+        <span className={`text-sm ${subtitleClassName}`}>{subtitle}</span>
       )}
     </button>
   );

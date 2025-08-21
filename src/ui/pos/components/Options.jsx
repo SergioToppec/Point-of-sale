@@ -44,7 +44,7 @@ export default function Options() {
   const userinfo = [
     {
       id: 1,
-      name: "Arturo",
+      name: "Arturo Ortiz Barajas",
     },
   ];
   const product = [
@@ -54,9 +54,9 @@ export default function Options() {
   ];
 
   return (
-    <div className="flex flex-row w-full bg-gray-100">
+    <div className="grid grid-cols-4 justify-center items-start h-40 w-full">
 
-      <div className="flex flex-col items-center justify-center h-10 w-80">
+      <div className="col-span-2 items-start justify-start h-auto">
         <div className="flex flex-row justify-between h-full w-full border-[1px] rounded-tl-lg border-gray-400">
           <label className="flex flex-col h-full w-36 bg-azulOscuro  rounded-tl-[6px] text-white font-medium p-3">
             Código cliente
@@ -65,7 +65,7 @@ export default function Options() {
             {userinfo[0].id}
           </label>
         </div>
-        <div className="flex flex-row justify-between h-full w-full border-[1px] rounded-bl-lg border-gray-400">
+        <div className="flex flex-row justify-between h-full w-full mt-2 border-[1px] rounded-bl-lg border-gray-400">
           <label className="flex flex-col h-full w-36 bg-azulOscuro  rounded-bl-[6px] text-white font-medium p-2">
             Nombre cliente
           </label>
@@ -73,7 +73,7 @@ export default function Options() {
             {userinfo[0].name}
           </label>
         </div>
-        <div className="flex flex-row justify-between h-full w-full border-[1px] rounded-l-lg border-gray-400">
+        <div className="flex flex-row justify-between h-full w-full mt-[32px] border-[1px] rounded-l-lg border-gray-400">
           <label className="flex flex-col h-full w-36 bg-azulOscuro  rounded-l-[6px] text-white font-medium p-2">
             Producto
           </label>
@@ -82,15 +82,16 @@ export default function Options() {
           </label>
         </div>
       </div>
-      <div className="grid grid-cols-3 justify-center gap-4">
+      <div className="grid grid-cols-3 col-span-2 justify-items-center gap-4">
         {options.map((option, index) => (
           <Card
             key={index}
-            className="h-32 w-24 rounded-lg hover:opacity-90 bg-azulOscuro text-white"
+            className="h-[90px] w-[112px] rounded-lg hover:opacity-90 bg-azulOscuro text-white"
             icon={option.icon}
             title={option.title}
-            titleClassName="break-words text-center text-sm font-medium"
+            titleClassName="break-words text-[13px] font-medium"
             subtitle={option.subtitle}
+            subtitleClassName="text-xs text-left font-light"
           />
         ))}
       </div>

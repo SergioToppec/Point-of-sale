@@ -41,6 +41,10 @@
   -ms-overflow-style: none; /* IE and Edge */
 }
 
+html, body {
+  overflow: hidden; /* Deshabilita el scroll global */
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
