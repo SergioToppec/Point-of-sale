@@ -8,12 +8,14 @@ import {
 
 import ReportePagosModal from "./modules/reporte-pagos-modal"
 import RegistroClientesModal from "./modules/registro-clientes-modal"
-import ReporteInventarioModal from "./modules/reporte-inventario-modal" // Modal de inventario
+import ReporteInventarioModal from "./modules/reporte-inventario-modal" 
+import ReporteVentasModal from "./modules/reporte-ventas-modal"
 
 export default function Reports() {
   const [showReportePagos, setShowReportePagos] = useState(false)
   const [showClientes, setShowClientes] = useState(false)
   const [showInventario, setShowInventario] = useState(false)
+  const [showVentas, setShowVentas] = useState(false)
 
   return (
     <div className="p-8 bg-white min-h-screen">
@@ -35,6 +37,7 @@ export default function Reports() {
         </button>
 
         <button
+          onClick={() => setShowVentas(true)}
           className="bg-azulOscuro hover:bg-azulOscuro/90 text-white w-[180px] h-[110px] rounded-lg flex flex-col items-center justify-center gap-2 transition-colors duration-200"
         >
           <FaShoppingCart size={24} />
@@ -50,7 +53,8 @@ export default function Reports() {
         </button>
       </div>
 
-      {/* Modales todos aun falta uno*/}
+      {/* Modales todos ya no falta nada*/}
+      <ReporteVentasModal isOpen={showVentas} onClose={() => setShowVentas(false)} />
       <ReportePagosModal isOpen={showReportePagos} onClose={() => setShowReportePagos(false)} />
       <RegistroClientesModal isOpen={showClientes} onClose={() => setShowClientes(false)} />
       <ReporteInventarioModal isOpen={showInventario} onClose={() => setShowInventario(false)} />
