@@ -1,5 +1,3 @@
-"use client"
-
 import { useState } from "react"
 import { FaTimes, FaCheck } from "react-icons/fa"
 
@@ -7,7 +5,7 @@ const SuccessModal = ({ isOpen, onClose }) => {
   if (!isOpen) return null
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 font-sans">
       <div className="bg-white rounded-lg shadow-xl w-[500px] mx-4 p-8">
         <div className="flex flex-col items-center text-center">
           <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
@@ -16,7 +14,7 @@ const SuccessModal = ({ isOpen, onClose }) => {
           <h3 className="text-xl font-bold text-gray-800 mb-6">Guardado con éxito</h3>
           <button
             onClick={onClose}
-            className="bg-[#395886] hover:bg-[#314d71] text-white px-6 py-2 rounded-lg font-medium transition-colors"
+            className="bg-azulOscuro hover:bg-azulFuerte text-white px-6 py-2 rounded-lg font-medium transition-colors"
           >
             Cerrar
           </button>
@@ -51,19 +49,18 @@ const FondoFijoModal = ({ isOpen, onClose }) => {
 
   return (
     <>
-      <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+      <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 font-sans">
         <div className="bg-white rounded-lg shadow-xl w-[400px] mx-4">
           {/* Header */}
-          <div className="bg-[#395886] text-white p-4 rounded-t-lg flex justify-between items-center">
+          <div className="bg-azulOscuro text-white p-4 rounded-t-lg flex justify-between items-center">
             <h3 className="text-lg font-bold">Fondo fijo</h3>
             <button onClick={onClose} className="text-white hover:text-gray-200">
               <FaTimes />
             </button>
           </div>
 
-         
           <div className="p-6">
-            {/* seleccion  */}
+            {/* Campos de formulario */}
             <div className="space-y-4 mb-6">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">Monto</label>
@@ -72,7 +69,7 @@ const FondoFijoModal = ({ isOpen, onClose }) => {
                   value={monto}
                   onChange={(e) => setMonto(e.target.value)}
                   placeholder=""
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#395886] focus:border-transparent"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-azulOscuro focus:border-transparent"
                 />
                 {error && (
                   <p className="text-red-600 text-sm mt-1">{error}</p>
@@ -89,11 +86,11 @@ const FondoFijoModal = ({ isOpen, onClose }) => {
               </div>
             </div>
 
-            {/* boton de guardar*/}
+            {/* Botón de guardar */}
             <div className="flex justify-center">
               <button
                 onClick={handleSave}
-                className="bg-[#395886] hover:bg-[#314d71] text-white px-6 py-2 rounded-lg font-medium transition-colors"
+                className="bg-azulOscuro hover:bg-azulFuerte text-white px-6 py-2 rounded-lg font-medium transition-colors"
               >
                 Guardar
               </button>
@@ -102,7 +99,7 @@ const FondoFijoModal = ({ isOpen, onClose }) => {
         </div>
       </div>
 
-      
+      {/* Modal de éxito jajja aqui probe algo nuevo */}
       <SuccessModal isOpen={showSuccess} onClose={handleSuccessClose} />
     </>
   )

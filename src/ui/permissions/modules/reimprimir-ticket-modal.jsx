@@ -7,7 +7,7 @@ const SuccessModal = ({ isOpen, onClose }) => {
   if (!isOpen) return null
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 font-sans">
       <div className="bg-white rounded-lg shadow-xl w-[460px] mx-4 p-8">
         <div className="flex flex-col items-center text-center">
           <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
@@ -20,7 +20,7 @@ const SuccessModal = ({ isOpen, onClose }) => {
           </h3>
           <button
             onClick={onClose}
-            className="bg-[#395886] hover:bg-[#314d71] text-white px-6 py-2 rounded-lg font-medium transition-colors"
+            className="bg-azulOscuro hover:bg-[#314d71] text-white px-6 py-2 rounded-lg font-medium transition-colors"
           >
             Cerrar
           </button>
@@ -64,34 +64,33 @@ const ReimprimirTicketModal = ({ isOpen, onClose }) => {
 
   return (
     <>
-      <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+      <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 font-sans">
         <div className="bg-white rounded-lg shadow-xl w-[600px] mx-4">
           {/* Header */}
-          <div className="bg-[#395886] text-white p-4 rounded-t-lg flex justify-between items-center">
+          <div className="bg-azulOscuro text-white p-4 rounded-t-lg flex justify-between items-center">
             <h3 className="text-lg font-bold">Reimprimir Ticket</h3>
             <button onClick={onClose} className="text-white hover:text-gray-200">
               <FaTimes />
             </button>
           </div>
 
-         
           <div className="p-6">
-            {/* barra de buscador ya luego lo modifico xd*/}
+            {/* Buscador prueba aun no definido*/}
             <div className="relative mb-4">
               <input
                 type="text"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 placeholder="Buscar por: N° de Ticket o Fecha"
-                className="w-full px-4 py-2 pr-10 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#395886] focus:border-transparent"
+                className="w-full px-4 py-2 pr-10 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-azulOscuro focus:border-transparent"
               />
               <FaSearch className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
             </div>
 
-            {/* Table */}
+            {/* Tabla */}
             <div className="mb-6">
               <table className="w-full border border-gray-300">
-                <thead className="bg-[#395886] text-white">
+                <thead className="bg-azulOscuro text-white">
                   <tr>
                     <th className="p-3 text-left font-medium">Numero de ticket</th>
                     <th className="p-3 text-left font-medium">Fecha</th>
@@ -110,7 +109,7 @@ const ReimprimirTicketModal = ({ isOpen, onClose }) => {
                         onClick={() => handleTicketClick(ticket)}
                         className={`cursor-pointer border-t border-gray-200 transition-all ${
                           selectedTicket?.id === ticket.id
-                            ? "bg-[#D6E4F6] border-l-4 border-[#395886]"
+                            ? "bg-azulClaro border-l-4 border-azulOscuro"
                             : "hover:bg-gray-50"
                         }`}
                       >
@@ -122,20 +121,20 @@ const ReimprimirTicketModal = ({ isOpen, onClose }) => {
               </table>
             </div>
 
-            {/* mensaje de eror muy xd */}
+            {/* Error mensaje prueba 1*/}
             {showError && (
               <p className="text-red-500 text-sm text-center mb-4">
                 Debes seleccionar un ticket para reimprimir.
               </p>
             )}
 
-            {/* Reimprimir boton al principio dio erroes pero gg me la pelo */}
+            {/* Botón reimprimir lol*/}
             <div className="flex justify-center">
               <button
                 onClick={handleReimprimir}
                 className={`px-8 py-2 rounded-lg font-medium transition-colors ${
                   selectedTicket
-                    ? "bg-[#395886] hover:bg-[#314d71] text-white"
+                    ? "bg-azulOscuro hover:bg-[#314d71] text-white"
                     : "bg-gray-300 text-gray-500"
                 }`}
               >
@@ -146,7 +145,7 @@ const ReimprimirTicketModal = ({ isOpen, onClose }) => {
         </div>
       </div>
 
-      {/* Success Modal .l. */}
+      {/* Modal de éxito */}
       <SuccessModal isOpen={showSuccess} onClose={handleSuccessClose} />
     </>
   )
