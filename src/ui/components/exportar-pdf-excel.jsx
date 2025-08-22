@@ -4,10 +4,7 @@ import autoTable from "jspdf-autotable"
 import * as XLSX from "xlsx"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faFilePdf, faFileExcel } from "@fortawesome/free-solid-svg-icons"
-<<<<<<< HEAD
 import RevotecLogo from "@/assets/icons/RevotecLogo.svg"
-=======
->>>>>>> 8b6c45a0308b0046472df813055dfa9b9021a159
 
 // AQUI CCOMIENZA LO BUENO XD
 
