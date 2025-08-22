@@ -1,4 +1,4 @@
-export default function Billing(){
+export default function Invoices(){
     return(
         <div>Facturación</div>
     )

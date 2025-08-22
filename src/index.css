@@ -33,6 +33,17 @@
   font-style: normal;
 }
 
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+html, body {
+  overflow: hidden; /* Deshabilita el scroll global */
+}
 
 @tailwind base;
 @tailwind components;
