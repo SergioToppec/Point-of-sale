@@ -41,8 +41,13 @@
   -ms-overflow-style: none; /* IE and Edge */
 }
 
+<<<<<<< HEAD
 body {
   font-family: 'Poppins', sans-serif;
+=======
+html, body {
+  overflow: hidden; /* Deshabilita el scroll global */
+>>>>>>> 8b6c45a0308b0046472df813055dfa9b9021a159
 }
 
 @tailwind base;
