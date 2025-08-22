@@ -5,9 +5,13 @@ import * as XLSX from "xlsx"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faFilePdf, faFileExcel } from "@fortawesome/free-solid-svg-icons"
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import RevotecLogo from "@/assets/icons/RevotecLogo.svg"
 >>>>>>> 8a62a4267134e7f27d72b7b9b2010208eed15005
+=======
+import RevotecLogo from "@/assets/icons/RevotecLogo.svg"
+>>>>>>> main
 
 // AQUI CCOMIENZA LO BUENO XD
 
